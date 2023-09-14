@@ -47,5 +47,5 @@
   "devDependencies": {
     "concurrently": "^8.2.1"
   },
-  "proxy": "https://vercel-builder-cwo304rum-alexoneillti.vercel.app/"
+  "proxy": "http://localhost:8001/"
 }
