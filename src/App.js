@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 async function fetchData() {
   try {
-    const response = await fetch('http://localhost:8001/graphql', {
+    const response = await fetch('/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
