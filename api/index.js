@@ -26,7 +26,7 @@ app.post('/graphql', async (req, res) => {
     const data = await response.json();
     console.log('>>> data', data);
 
-    res.json(data);
+    res.send(data);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal Server Error' });

@@ -21,18 +21,32 @@ async function fetchData() {
     return data;
   } catch (error) {
     console.error(error);
+    throw error; // Re-throw the error to handle it in the calling code
   }
 }
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const result = fetchData();
-    setData(result);
+    fetchData()
+      .then((result) => {
+        setData(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
-  return <div>{data.name}</div>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return <div>{data?.data?.CurrentUser?.name}</div>;
 }
 
 export default App;
