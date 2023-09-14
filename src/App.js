@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 async function fetchData() {
   try {
@@ -18,17 +18,21 @@ async function fetchData() {
     });
     const data = await response.json();
     console.log('Response from Express:', data);
+    return data;
   } catch (error) {
     console.error(error);
   }
 }
 
 function App() {
+  const [data, setData] = useState();
+
   useEffect(() => {
-    fetchData();
+    const result = fetchData();
+    setData(result);
   }, []);
 
-  return <div>This is the sample app working</div>;
+  return <div>{data.name}</div>;
 }
 
 export default App;
