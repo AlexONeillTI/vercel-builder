@@ -1,41 +1,30 @@
 import React, { useEffect } from 'react';
 
-import axios from 'axios';
-import { gql, useQuery } from '@apollo/client';
-
-// Your GraphQL query
-const currentuserQuery = gql`
-  currentuser {
-    id
-  }
-`;
-
-async function fetchApi() {
-  // const query = useQuery(currentuserQuery);
+async function fetchData() {
   try {
-    // Make the request to your Express.js backend
-    axios
-      .post('/graphql', { query: currentuserQuery })
-      .then((response) => {
-        console.log('Response from Express backend:', response.data);
-        // Handle the response from the external GraphQL endpoint here
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        // Handle errors here
-      });
+    const response = await fetch('/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `query{  
+          CurrentUser {
+              id
+              name
+            }
+          }`,
+      }),
+    });
+    const data = await response.json();
+    console.log('Response from Express:', data);
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return null;
+    console.error(error);
   }
 }
 
 function App() {
   useEffect(() => {
-    async function fetchData() {
-      const result = await fetchApi();
-      console.log(result);
-    }
     fetchData();
   }, []);
 

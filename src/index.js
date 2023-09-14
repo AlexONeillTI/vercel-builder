@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+
+const httpLink = createHttpLink({
+  uri: 'https://heliumhackathon13.thoughtindustries.com/graphql',
+});
 
 const client = new ApolloClient({
-  uri: 'https://vercel-builder-2txcc419w-alexoneillti.vercel.app/api/test',
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
