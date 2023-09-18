@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { RoutesFunction } from './Router';
 
 async function fetchData() {
   try {
@@ -26,7 +25,7 @@ async function fetchData() {
   }
 }
 
-function App() {
+const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -47,7 +46,7 @@ function App() {
     return <div>Loading...</div>;
   }
 
-  return <RoutesFunction />;
-}
+  return <div>This is the Builder Homepage</div>;
+};
 
-export default App;
+export default Home;
