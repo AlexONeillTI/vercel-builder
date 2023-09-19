@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BuilderApp from './pages/BuilderApp';
+import BuilderApp from './pages/Builder';
 import Home from './pages/Home';
 
 export const RoutesFunction = () => {
