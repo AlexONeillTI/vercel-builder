@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 async function fetchData() {
   try {
-    const response = await fetch('http://localhost:8001/graphql', {
+    const response = await fetch('https://builder-backend-q16c.onrender.com/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -11,10 +11,15 @@ async function fetchData() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: `query{  
+        query: `query{
           CurrentUser {
-              id
-              name
+            firstName
+            lastName
+            email
+            client {
+                name
+                panorama
+              }
             }
           }`,
       }),
