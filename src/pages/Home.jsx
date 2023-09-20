@@ -21,7 +21,7 @@ async function fetchData() {
     return data;
   } catch (error) {
     console.error(error);
-    throw error; // Re-throw the error to handle it in the calling code
+    throw error;
   }
 }
 
