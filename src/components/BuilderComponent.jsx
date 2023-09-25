@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
 
-builder.init('48ac3b97284e4e28b5ceefc76efd0800');
+builder.init('97041c15fb5c4a0d8c3773d54b949a47');
 
 async function fetchData() {
   try {
